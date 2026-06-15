@@ -3,41 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio Profesional</title>
+    <title>Sebastian Gutierrez | Portafolio</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen font-sans antialiased">
+<body class="portfolio-body">
 
-    <div class="max-w-4xl mx-auto px-4 py-12">
+    <div class="bg-grid-pattern"></div>
+
+    <div class="portfolio-container">
         
-        <header class="text-center mb-12">
-            <img id="profile-img" src="" alt="Foto de Perfil" class="w-32 h-32 rounded-full mx-auto border-4 border-indigo-500 object-cover shadow-lg mb-4 hidden">
-            <h1 id="fullname" class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 mb-2">Cargando...</h1>
-            <p id="comment" class="text-slate-400 max-w-xl mx-auto italic text-sm md:text-base mb-6"></p>
+        <header class="profile-header">
+            <div class="profile-img-container">
+                <div class="profile-img-glow"></div>
+                <img id="profile-img" src="" alt="Foto de Perfil" class="profile-img hidden">
+            </div>
+
+            <div class="profile-title-block">
+                <h1 id="fullname" class="profile-name">Cargando...</h1>
+                <p class="profile-subtitle">Ingeniería de Sistemas Informáticos</p>
+            </div>
+
+            <div class="profile-quote-block">
+                <span class="quote-mark-open">“</span>
+                <p id="comment" class="profile-comment"></p>
+                <span class="quote-mark-close">”</span>
+            </div>
             
-            <div id="social-media" class="flex justify-center gap-4 flex-wrap"></div>
+            <div id="social-media" class="social-container"></div>
         </header>
 
-        <hr class="border-slate-800 mb-12">
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-text-wrapper">
+                <span class="divider-text">Sistemas & Infraestructura</span>
+            </div>
+        </div>
 
         <main>
-            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2 text-indigo-400">
-                <i class="fa-solid fa-folder-open"></i> Proyectos y Prácticas
+            <h2 class="main-title">
+                <span class="title-icon-wrapper">
+                    <i class="fa-solid fa-terminal text-sm"></i>
+                </span> 
+                Bitácora de Prácticas y Proyectos
             </h2>
             
-            <div id="portfolio-grid" class="grid gap-6 md:grid-cols-2"></div>
+            <div id="portfolio-grid" class="portfolio-grid"></div>
         </main>
         
+        <footer class="portfolio-footer">
+            <p>© 2026 • Diseñado con CSS Independiente y Tailwind v4</p>
+        </footer>
     </div>
 
     <script>
         const getIcon = (title) => {
             const t = title.toLowerCase();
-            if (t.includes('linkedin')) return 'fa-brands fa-linkedin';
-            if (t.includes('github')) return 'fa-brands fa-github';
+            if (t.includes('linkedin')) return 'fa-brands fa-linkedin-in';
+            if (t.includes('github') || t.includes('portafolio')) return 'fa-brands fa-github';
             if (t.includes('instagram')) return 'fa-brands fa-instagram';
-            return 'fa-solid fa-link';
+            return 'fa-solid fa-arrow-up-right-from-square';
         };
 
         async function loadPortfolio() {
@@ -46,11 +72,11 @@
                 const data = await response.json();
 
                 document.getElementById('fullname').textContent = data.fullname;
-                document.getElementById('comment').textContent = `"${data.comment}"`;
+                document.getElementById('comment').textContent = data.comment;
                 
                 if (data.image_profile) {
                     const img = document.getElementById('profile-img');
-                    img.src = data.image_profile;
+                    img.src = data.image_profile.replace("imgur.com/a/", "i.imgur.com/") + ".png";
                     img.classList.remove('hidden');
                 }
 
@@ -59,25 +85,30 @@
                     const btn = document.createElement('a');
                     btn.href = net.url;
                     btn.target = '_blank';
-                    btn.className = 'flex items-center gap-2 bg-slate-800 hover:bg-indigo-600 text-slate-200 hover:text-white px-4 py-2 rounded-full transition-all text-sm font-medium shadow-sm';
-                    btn.innerHTML = `<i class="${getIcon(net.title)} text-lg"></i> ${net.title}`;
+                    btn.className = 'social-btn';
+                    btn.innerHTML = `<i class="${getIcon(net.title)} icon-color"></i> ${net.title}`;
                     socialContainer.appendChild(btn);
                 });
 
                 const grid = document.getElementById('portfolio-grid');
                 data.portfolio.forEach(project => {
                     const card = document.createElement('div');
-                    card.className = 'bg-slate-800/50 rounded-2xl border border-slate-800 p-5 hover:border-slate-700 transition-all flex flex-col justify-between shadow-md';
+                    card.className = 'project-card';
                     
                     let extraImagesHtml = '';
                     if (project.images && project.images.length > 0) {
                         extraImagesHtml = `
-                            <div class="mt-3">
-                                <p class="text-xs text-slate-500 mb-1 font-semibold uppercase tracking-wider">Capturas adicionales:</p>
-                                <div class="flex gap-2 overflow-x-auto pb-1">
+                            <div class="extra-images-section">
+                                <p class="extra-images-title">
+                                    <i class="fa-solid fa-images"></i> Evidencias adicionales:
+                                </p>
+                                <div class="extra-images-scroll">
                                     ${project.images.map(img => `
-                                        <a href="${img.image_url}" target="_blank" class="block shrink-0">
-                                            <img src="${img.image_url}" class="w-16 h-12 object-cover rounded border border-slate-700 hover:border-indigo-400 transition-all" alt="Captura">
+                                        <a href="${img.image_url}" target="_blank" class="thumb-link">
+                                            <img src="${img.image_url}" class="thumb-img" alt="Evidencia">
+                                            <div class="thumb-overlay">
+                                                <i class="fa-solid fa-magnifying-glass text-[10px] text-white"></i>
+                                            </div>
                                         </a>
                                     `).join('')}
                                 </div>
@@ -86,12 +117,20 @@
                     }
 
                     card.innerHTML = `
-                        <div>
-                            <div class="w-full h-44 overflow-hidden rounded-xl mb-4 bg-slate-900 border border-slate-800">
-                                <img src="${project.image_url}" alt="${project.title}" class="w-full h-full object-cover hover:scale-105 transition-all duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/94a3b8?text=Ver+Captura'">
+                        <div class="project-content">
+                            <div class="project-img-wrapper">
+                                <img src="${project.image_url}" alt="${project.title}" class="project-main-img" onerror="this.src='https://placehold.co/600x400/0f172a/94a3b8?text=Ver+Captura'">
+                                <a href="${project.image_url}" target="_blank" class="project-expand-btn">
+                                    <i class="fa-solid fa-expand text-xs"></i>
+                                </a>
                             </div>
-                            <h3 class="text-lg font-bold text-slate-100 mb-2">${project.title}</h3>
-                            <p class="text-sm text-slate-400 leading-relaxed">${project.description}</p>
+                            
+                            <div class="project-info">
+                                <h3 class="project-title">
+                                    <span class="project-dot">■</span> ${project.title}
+                                </h3>
+                                <p class="project-description">${project.description}</p>
+                            </div>
                         </div>
                         ${extraImagesHtml}
                     `;
@@ -99,7 +138,8 @@
                 });
 
             } catch (error) {
-                document.getElementById('fullname').textContent = "Error al cargar los datos.";
+                console.error(error);
+                document.getElementById('fullname').textContent = "Error al conectar los datos.";
             }
         }
 
