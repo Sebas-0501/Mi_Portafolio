@@ -1,6 +1,6 @@
 {
-    "fullname": "Tu Nombre Completo",
-    "image_profile": "https://imgur.com/a/0WoZZg4",
+    "fullname": "Sebastian Gutierrez Saavedra",
+    "image_profile": ""https://imgur.com/a/0WoZZg4.png",
     "social_media": [
         {
             "id": 1,
@@ -18,21 +18,21 @@
             "url": "https://www.instagram.com/sebastiangs05?igsh=MWdqc2Joc2NkNGFjYQ=="
         }
     ],
-    "comment": "Un breve comentario sobre ti. (Ej: Soy estudiante de primer semestre, esta materia me ayudó a comprender...)",
+    "comment": "Soy estudiante de la carrera de Ingenieria de Sistemas Informaticos, esta materia considero que me enseño bastantes cosas y desperto mi curiosidad por varias otras, sin duda el aprendizaje que tuve me va ayudar durante la carrera y en mi futuro profesional.",
     "portfolio": [
         {
             "id": 1,
             "title": "Instalación de Máquina Virtual",
             "description": "Instalación y configuración inicial de una máquina virtual con Linux Ubuntu.",
-            "image_url": "https://imgur.com/eFpFHiW",
+            "image_url": "https://imgur.com/eFpFHiW.png",
             "images": [
                 {
                     "id": 1,
-                    "image_url": "https://imgur.com/XZAdDyK"
+                    "image_url": "https://imgur.com/XZAdDyK.png"
                 },
                 {
                     "id": 2,
-                    "image_url": "https://imgur.com/7eOKdxg"
+                    "image_url": "https://imgur.com/7eOKdxg.png"
                 }
             ]
         },
@@ -40,17 +40,17 @@
             "id": 2,
             "title": "Instalacion y Monitoreo de Cockpit Ubuntu server.",
             "description": "Práctica de creación de usuarios, grupos y asignación de permisos CHMOD en Linux.",
-            "image_url": "https://imgur.com/FKpgusT"
+            "image_url": "https://imgur.com/FKpgusT.png"
         },
         {
             "id": 3,
             "title": "Hardenizacion del SO",
             "description": "Hardenizacion del sistema operativo Windows",
-            "image_url": "https://imgur.com/a/Vapw2XS",
+            "image_url": "https://imgur.com/a/Vapw2XS.png",
             "images": [
                 {
                     "id": 1,
-                    "image_url": "https://imgur.com/kmNyWYn"
+                    "image_url": "https://imgur.com/kmNyWYn.png"
                 }
             ]
         },
@@ -58,11 +58,11 @@
             "id": 4,
             "title": "Configuracion de Servidor de Dominio windows",
             "description": "Instalacion y configuracion de un servidor de dominio en Windows Server",
-            "image_url": "https://imgur.com/yXqgVcE",
+            "image_url": "https://imgur.com/yXqgVcE.png",
             "images": [
                 {
                     "id": 1,
-                    "image_url": "https://imgur.com/kmNyWYn"
+                    "image_url": "https://imgur.com/kmNyWYn.png"
                 }
             ]
         },
@@ -70,11 +70,11 @@
             "id": 5,
             "title": "Monitorizacion de recursos en Windows y Linux(Ubuntu).",
             "description": "Monitorizacion de recursos en entorno Windows y Linux",
-            "image_url": "https://imgur.com/Bp3TPn0",
+            "image_url": "https://imgur.com/Bp3TPn0.png",
             "images": [
                 {
                     "id": 1,
-                    "image_url": "https://imgur.com/64qU0tG"
+                    "image_url": "https://imgur.com/64qU0tG.png"
                 }
             ]
         }
