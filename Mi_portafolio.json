@@ -1,6 +1,6 @@
 {
     "fullname": "Sebastian Gutierrez Saavedra",
-    "image_profile": "https://imgur.com/a/0WoZZg4.png",
+    "image_profile": "https://imgur.com/a/C2bBRCQ.png",
     "social_media": [
         {
             "id": 1,
@@ -16,6 +16,11 @@
             "id": 3,
             "title": "Instagram",
             "url": "https://www.instagram.com/sebastiangs05?igsh=MWdqc2Joc2NkNGFjYQ=="
+        }
+        {
+            "id": 4,
+            "title": "Mi portafolio Github",
+            "url": "https://github.com/Sebas-0501/Mi_Portafolio"
         }
     ],
     "comment": "Soy estudiante de la carrera de Ingenieria de Sistemas Informaticos, esta materia considero que me enseño bastantes cosas y desperto mi curiosidad por varias otras, sin duda el aprendizaje que tuve me va ayudar durante la carrera y en mi futuro profesional.",
@@ -46,7 +51,7 @@
             "id": 3,
             "title": "Hardenizacion del SO",
             "description": "Hardenizacion del sistema operativo Windows",
-            "image_url": "https://imgur.com/a/Vapw2XS.png",
+            "image_url": "https://imgur.com/Vapw2XS.png",
             "images": [
                 {
                     "id": 1,
